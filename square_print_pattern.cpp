@@ -25,7 +25,7 @@ bool validate_user_input(std::string &input, unsigned int &user_input) {
   } else {
     input = input.substr(0, input.size()); // Remove leading spaces.
 
-    for (uint i = 0; i < input.size(); i++) {
+    for (unsigned int i = 0; i < input.size(); i++) {
       if (isdigit(input[i])) {
         num_digits++;
       } else {
@@ -47,7 +47,7 @@ bool validate_user_input(std::string &input, unsigned int &user_input) {
   }
 }
 
-uint get_user_input() {
+unsigned int get_user_input() {
   while (true) {
     std::string input;
     std::cout << "Enter an odd integer: ";
@@ -70,19 +70,19 @@ uint get_user_input() {
   }
 }
 
-void initial_square_array(std::vector<std::vector<char> > &square_array,
-                          uint odd_int, char &input) {
-  for (uint i = 0; i < odd_int; i++) {
-    for (uint j = 0; j < odd_int; j++) {
+void initial_square_array(std::vector<std::vector<char>> &square_array,
+                          unsigned int odd_int, char &input) {
+  for (unsigned int i = 0; i < odd_int; i++) {
+    for (unsigned int j = 0; j < odd_int; j++) {
       square_array[i][j] = input;
     }
   }
 }
 
-void fill_square_array(std::vector<std::vector<char> > &square_array,
-                       uint odd_int, uint index, char &input) {
-  for (uint i = index; i < odd_int / 2; i += 2) {
-    for (uint j = i; j < odd_int - i; j++) {
+void fill_square_array(std::vector<std::vector<char>> &square_array,
+                       unsigned int odd_int, unsigned int index, char &input) {
+  for (unsigned int i = index; i < odd_int / 2; i += 2) {
+    for (unsigned int j = i; j < odd_int - i; j++) {
       square_array[i][j] = input;
       square_array[odd_int - 1 - i][j] = input;
       square_array[j][i] = input;
@@ -91,10 +91,10 @@ void fill_square_array(std::vector<std::vector<char> > &square_array,
   }
 }
 
-void print_square_array(std::vector<std::vector<char> > &square_array,
-                        uint odd_int) {
-  for (uint i = 0; i < odd_int; i++) {
-    for (uint j = 0; j < odd_int; j++) {
+void print_square_array(std::vector<std::vector<char>> &square_array,
+                        unsigned int odd_int) {
+  for (unsigned int i = 0; i < odd_int; i++) {
+    for (unsigned int j = 0; j < odd_int; j++) {
       std::cout << square_array[i][j];
       std::cout << " ";
     }
@@ -102,7 +102,8 @@ void print_square_array(std::vector<std::vector<char> > &square_array,
   }
 }
 
-void print_pattern(std::vector<std::vector<char> > &square_array, uint odd_int) {
+void print_pattern(std::vector<std::vector<char>> &square_array,
+                   unsigned int odd_int) {
   char X = 'X';
   char space = ' ';
   if (odd_int % 4 == 1) {
@@ -116,8 +117,8 @@ void print_pattern(std::vector<std::vector<char> > &square_array, uint odd_int) 
 }
 
 int main() {
-  uint odd_int = get_user_input();
-  std::vector<std::vector<char> > square_array(odd_int,
+  unsigned int odd_int = get_user_input();
+  std::vector<std::vector<char>> square_array(odd_int,
                                               std::vector<char>(odd_int));
   std::cout << "\n";
   print_pattern(square_array, odd_int);
